@@ -1,39 +1,54 @@
 /************************************/
 /***************GLOBAL***************/
 /************************************/
+:root {
+    --primary: #001e3c;
+    --secondary: #004488;
+}
+
 a {
     color: black;
     text-decoration: none;
 }
 
-
-/************************************/
-/****************ICON****************/
-/************************************/
-.icon {
+body {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.icon img {
-    max-height: 2em;
-    padding: var(--bs-navbar-padding-y) var(--bs-navbar-nav-link-padding-x);
+main {
+    flex-grow: 1;
 }
 
-.icon:hover{
-    background-color: #004488;
+hr {
+    border: none;
+    height: 1px;
+    color: var(--primary);
+    background-color: var(--primary);
 }
 
 /************************************/
 /*********BOOTSTRAP OVERRIDES********/
 /************************************/
+
+/* Navbar */
 .navbar {
     position: sticky;
     top: 0;
-    background-color: #001e3c;;
+    background-color: var(--primary);
     padding: 0;
+    z-index: 5;
+}
+
+.nav-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-brand {
+    color: white;
 }
 
 .navbar-toggler-icon {
@@ -44,43 +59,212 @@ a {
     border: none;
 }
 
-.navbar-nav .nav-link, .navbar-nav .nav-toggler {
+.nav-link, .nav-toggler {
     color:white;
 }
 
-.navbar-nav .nav-link:hover {
+.nav-link:hover {
     background-color: #004488;
+    color:white;
+}
+
+/* Button */
+.btn {
+    background-color: var(--primary);
+    border: none;
+}
+
+.btn:hover {
+    background-color: var(--secondary);
+}
+
+/* Carousel */
+@media screen and (min-width: 992px) {
+    #carousel .carousel-item {
+        height: 95vh;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    #carousel .carousel-item {
+        height: 96vh;
+    }    
+}
+
+#carousel .carousel-item img {
+  object-fit: cover;
 }
 
 /************************************/
-/*********Content Containers*********/
+/****************FORM****************/
+/************************************/
+.form {
+    border: 1.75px solid var(--primary);
+    border-radius: 3px;
+}
+
+/************************************/
+/***************FOOTER***************/
+/************************************/
+.footer {
+    position: relative;
+    background-color: var(--primary);
+}
+
+.footer .footer-link {
+    color: white;
+}
+
+.footer .footer-link:hover {
+    color: lightblue;
+}
+
+.footer .footer-copyright {
+    color: lightblue;
+}
+
+/************************************/
+/****************ICON****************/
+/************************************/
+.icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: stretch;
+}
+
+.icon img {
+    max-height: 2em;
+    padding: var(--bs-navbar-padding-y) var(--bs-navbar-nav-link-padding-x);
+}
+
+.icon:hover{
+    background-color: var(--secondary);
+}
+
+/************************************/
+/****************HERO****************/
+/************************************/
+.hero-container {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.hero-left {
+    flex: 2;
+}
+
+.hero-right {
+    flex: 1;
+}
+
+/************************************/
+/**************GALLERY***************/
+/************************************/
+.gallery-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 2em auto;
+}
+
+.gallery-container .gallery-item img {
+    width: 100%;
+}
+
+@media screen and (min-width: 992px) {
+    .gallery-container .gallery-item {
+        width: 25%;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {    
+    .gallery-container .gallery-item {
+        width: 50%;
+    }
+}
+
+/************************************/
+/*********PROJECT DESCRIPTION********/
+/************************************/
+.project-description-container {
+    display: flex;
+}
+
+.project-description-tech {
+    flex: 1;
+    border-radius: 3px;
+    background-color: #edf5ff;
+}
+
+.project-description-tech h3 {
+    font-size: 1.25em;
+}
+
+.project-description-tech h2 {
+    margin-bottom: 0.5em;
+}
+
+.project-description-desc {
+    flex: 5;
+}
+
+.project-description-desc h1 {
+    margin-bottom: 0.5em;
+}
+
+@media screen and (max-width: 767px) {
+    .project-description-container {
+        flex-direction: column;
+    }
+    
+    .project-description-tech {
+        box-shadow: 0 5px 0 rgba(0, 0, 0, 0.1);
+        border-top: 5px solid var(--secondary);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .project-description-container {
+        flex-direction: row;
+    }
+
+    .project-description-tech {
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        border-left: 5px solid var(--secondary);
+    }
+}
+
+/************************************/
+/*********CONTENT CONTAINERS*********/
 /************************************/
 
 .content-container:first-child {
     margin-top: 5em;
 }
 
-.content-imgs {
+.content-container .content-imgs {
     display: flex;
     justify-content: center;
 }
 
-.content-imgs img {
+.content-container .content-imgs img {
     object-fit: cover;
 }
 
-.content-img, .content-description {
+.content-container .content-img, .content-container .content-description {
     box-sizing: border-box;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 991px) {
     .content-container {
         display: flex;
         flex-direction: column;
         min-height: 100vh;
     }
 
-    .content-imgs img {
+    .content-container .content-imgs img {
         width: 100%;
         height: 100%;
     }
@@ -103,14 +287,14 @@ a {
     }
 
     .content-container:nth-child(even) .content-imgs, .content-container:nth-child(odd) .content-description {
-        border-right: 5px solid black;
+        border-right: 3px solid var(--primary);
     }
 
-    .content-imgs img {
-        width: 80%;
+    .content-container .content-imgs img {
+        width: 90%;
     }
 
-    .content-description {
+    .content-container .content-description {
         display: flex;
         flex-direction: column;
         height: 100%;
