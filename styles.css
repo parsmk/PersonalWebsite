@@ -99,7 +99,7 @@ hr {
 /****************FORM****************/
 /************************************/
 .form {
-    border: 1.75px solid var(--primary);
+    border: 1.75px solid var(--secondary);
     border-radius: 3px;
 }
 
