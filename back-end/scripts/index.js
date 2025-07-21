@@ -1,27 +1,19 @@
+// Packages
 const express = require("express");
-const tokens = require("../tokens");
+const cors = require("cors");
+
+// Project Modules
+const projectRoutes = require("./projects");
 
 const app = express();
 const PORT = 3000;
 
-app.get("/", (req, res) => {
-    res.send({
-        "port": PORT
-    });
-});
+// Enable CORS
+app.use(cors());
 
-app.get("/projects", async (req, res) => {
-    const url = "https://api.github.com/users/parsmk/repos";
-    const headers = {
-        "accept": "application/vnd.github+json",
-        "User-Agent": "parsmk"
-    };
+// Assign Project Routes
+app.use("/projects", projectRoutes);
 
-    console.log(tokens.github);
-    
-    res.sendStatus(200);
-});
-
-app.listen(PORT, (req, res) => {
+app.listen(PORT, () => {
     console.log(`Server is running on port: ${PORT}`);
 });

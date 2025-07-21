@@ -162,25 +162,25 @@ hr {
 /************************************/
 /**************GALLERY***************/
 /************************************/
-.gallery-container {
+#gallery-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin: 2em auto;
 }
 
-.gallery-container .gallery-item img {
+#gallery-container .gallery-item img {
     width: 100%;
 }
 
 @media screen and (min-width: 992px) {
-    .gallery-container .gallery-item {
+    #gallery-container .gallery-item {
         width: 25%;
     }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {    
-    .gallery-container .gallery-item {
+    #gallery-container .gallery-item {
         width: 50%;
     }
 }
@@ -240,6 +240,12 @@ hr {
 /*********CONTENT CONTAINERS*********/
 /************************************/
 
+.content-container {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1.25s ease-out, transform 1.25s ease-out;
+}
+
 .content-container:first-child {
     margin-top: 5em;
 }
@@ -255,6 +261,11 @@ hr {
 
 .content-container .content-img, .content-container .content-description {
     box-sizing: border-box;
+}
+
+.content-container-hidden {
+    opacity: 0 !important;
+    transform: translateY(-2em) !important;
 }
 
 @media screen and (max-width: 991px) {
